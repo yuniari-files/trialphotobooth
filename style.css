@@ -1,0 +1,227 @@
+/* style.css */
+
+:root {
+    --bg-color: #fce4ec; /* Pink pucat seperti di Figma */
+    --accent-color: #ff80ab; /* Pink yang lebih cerah untuk tombol */
+    --secondary-color: #ff5252; /* Merah untuk tombol Home/Cancel */
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jersey 15', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+h1.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: rgb(61, 3, 3);
+    font-family: 'Jersey 15', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Frame 1: Camera --- */
+.camera-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Efek Mirror agar user nyaman */
+}
+
+#timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Jersey 15', sans-serif;  
+    font-size: 8rem;
+    color: var(--white);
+    font-weight: normal;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Efek kilatan kamera */
+.flash-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none; /* Agar tidak menghalangi klik */
+    z-index: 10;
+}
+
+/* Animasi kilatan */
+.flash-active {
+    animation: flash-animation 0.2s ease-out;
+}
+
+@keyframes flash-animation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* --- Frame 2: Preview --- */
+.preview-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.photo-slot {
+    background: #eee;
+    border-radius: 10px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Frame 3: Templates (2 Columns, Scrollable) --- */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom sesuai ide kamu */
+    gap: 20px;
+    max-height: 400px; /* Batas tinggi agar bisa scroll */
+    overflow-y: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+.template-item {
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: default;
+    transition: 0.3s;
+    background: #f9f9f9;
+    padding: 10px;
+}
+
+.template-item:hover, .template-item.selected {
+    border-color: var(--accent-color);
+    background: #fff0f5;
+}
+
+.template-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* --- Buttons --- */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.btn-main {
+    background-color: #FFA79C;
+    color: rgb(36, 2, 2);
+    border: 2px solid rgb(61, 3, 3);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 2rem;
+    cursor: default;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    background-color: #FFA79C;
+    color: rgb(61, 3, 3);
+    border: 2px solid rgb(36, 2, 2);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 2rem;
+    cursor: default;
+}
+
+.btn-main:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* --- Frame 4: Final Result --- */
+#final-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.result-text {
+    margin: 20px 0;
+    color: #666;
+    font-size: 1.5rem;
+
+}
+
+.signature {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+
+.button-group {
+    position: relative;
+    z-index: 100; /* Memastikan tombol di atas segalanya */
+}
+
+.btn-main, .btn-secondary {
+    pointer-events: auto !important; /* Memastikan elemen bisa menerima klik */
+    cursor: default;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuni's Photobooth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <section id="frame-1" class="frame">
+            <h1 class="title">Yuni's Photobooth</h1>
+            <div class="camera-container">
+                <video id="webcam" autoplay></video>
+                <div id="timer" class="hidden">3</div>
+                <div id="flash-overlay" class="flash-effect"></div>
+                <canvas id="capture-canvas" class="hidden"></canvas>
+            </div>
+            <button id="btn-start" class="btn-main">START</button>
+        </section>
+
+        <section id="frame-2" class="frame hidden">
+            <div class="preview-group">
+            <div class="photo-slot" id="prev-1"></div>
+            <div class="photo-slot" id="prev-2"></div>
+            <div class="photo-slot" id="prev-3"></div>
+            </div>
+        <div class="button-group">
+            <button id="btn-retake" class="btn-secondary">Retake</button>
+            <button id="btn-next-to-3" class="btn-main">Next</button>
+        </div>
+        </section>
+
+        <section id="frame-3" class="frame hidden">
+            <div class="header-selection">
+                <span class="badge">Choose ur fav frame</span>
+            </div>
+            <div class="template-grid">
+                <div class="template-item" data-template="1">
+                    <img src="assets/template1.png" alt="Template 1">
+                </div>
+                <div class="template-item" data-template="2">
+                    <img src="assets/template2.png" alt="Template 2">
+            </div>
+                <div class="template-item" data-template="3">
+                    <img src="assets/template3.png" alt="Template 3">
+                </div>
+                <div class="template-item" data-template="4">
+                    <img src="assets/template4.png" alt="Template 4">
+                </div>
+            </div>
+            <button id="btn-next-to-4" class="btn-main">Next</button>
+        </section>
+
+        <section id="frame-4" class="frame hidden">
+            <div class="final-result-container">
+                <div id="final-image-wrapper"></div>
+            <div class="result-text">
+                <p>Here the results. Thanks for using this cutie dupie photobooth. Hope u have a great day 🥰</p>
+                <p class="signature">-yuni</p>
+            </div>
+            <div class="button-group">
+                <button id="btn-download" class="btn-main">Download</button>
+                <button id="btn-home" class="btn-secondary">Home</button>
+            </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</body>
+</html>
