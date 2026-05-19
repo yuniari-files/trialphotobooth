@@ -1,0 +1,15 @@
+{
+  "name": "Yuniari Photobooth",
+  "short_name": "YuniBooth",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FFF0F5",
+  "theme_color": "#FFC0CB",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
